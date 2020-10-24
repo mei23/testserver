@@ -26,6 +26,7 @@ server.get('/503', async (request, reply) => {
 });
 
 server.get('/slow', async (request, reply) => {
+	console.log(`SLOW_START: ${request.id} ${request.ip} ${request.method} ${request.headers['user-agent']}`);
 	await sleep(15 * 1000);
 	reply
 		.code(200)
